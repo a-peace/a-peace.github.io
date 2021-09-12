@@ -9,6 +9,7 @@
 
     >Нажми на меня</button>
   
+    <P v-show="clicks">{{clicks}}</P>
 </template>
 
 <script>
@@ -19,8 +20,11 @@ export default {
   },
   data: function () {
     return {
+      clicks: 0, 
       classButton: 'btn btn-primary',
-      listOfClasses: ["btn btn-primary", "btn btn-secondary", "btn btn-success", "btn btn-danger", "btn btn-warning", "btn btn-info", "btn btn-light", "btn btn-dark"]
+      listOfClasses: ["btn btn-primary", "btn btn-secondary", "btn btn-success", 
+                      "btn btn-danger", "btn btn-warning", "btn btn-info", 
+                      "btn btn-light", "btn btn-dark"]
     };
   },
   methods: {
@@ -29,6 +33,7 @@ export default {
       let index = this.listOfClasses.map(function(e) { return e; }).indexOf(this.classButton);
       if (lenght == index) {index = -1}
       this.classButton = this.listOfClasses[index + 1];
+      this.clicks += 1;
     }
   }
 }
