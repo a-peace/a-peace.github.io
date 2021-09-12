@@ -25,8 +25,9 @@ export default {
   },
   methods: {
     changeClass(){
-      // let lenght = this.listOfClasses.length;
+      let lenght = this.listOfClasses.length - 1;
       let index = this.listOfClasses.map(function(e) { return e; }).indexOf(this.classButton);
+      if (lenght == index) {index = -1}
       this.classButton = this.listOfClasses[index + 1];
     }
   }
