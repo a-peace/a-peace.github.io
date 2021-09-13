@@ -1,6 +1,6 @@
 <template>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  <img alt="my avatar" src="./assets/avatar.png">
+  <img id="avatar" alt="my avatar" src="./assets/avatar.png">
   <p>Автор картинки <a href="https://twitter.com/SH0R0KEN" class="ref">@SH0R0KEN</a> </p>
   
   <p>Пока данный сайт Состоит из одной странички и не несет никакой информации и функционала </p>
@@ -9,7 +9,7 @@
 
     >Нажми на меня</button>
   
-    <P v-show="clicks">{{clicks}}</P>
+    <p v-show="clicks">{{clicks}}</p>
 </template>
 
 <script>
@@ -17,6 +17,12 @@
 export default {
   name: 'App',
   components: {
+  },
+  mounted() {
+    let src = document.getElementById("avatar").src
+    console.log('%cНе ожидали?', 'color: blue');
+    console.log('%cДа, я тоже тут', 'color: blue');
+    console.log('%c ', 'font-size:500px; background:url('+ src +') no-repeat;');
   },
   data: function () {
     return {
@@ -34,7 +40,8 @@ export default {
       if (lenght == index) {index = -1}
       this.classButton = this.listOfClasses[index + 1];
       this.clicks += 1;
-    }
+    },
+    
   }
 }
 </script>
